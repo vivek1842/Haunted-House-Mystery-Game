@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haunted House Mystery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>🏚️ Haunted House Mystery 🕸️</h1>
+        <p>Click on a room to uncover the mystery!</p>
+        <div class="house-map">
+            <div class="room" id="attic">🕯️ Attic</div>
+            <div class="room" id="basement">💀 Basement</div>
+            <div class="room" id="library">📚 Library</div>
+            <div class="room" id="kitchen">🍲 Kitchen</div>
+        </div>
+        <div class="clue-section">
+            <h2>Clue</h2>
+            <p id="clue-text">Click a room to reveal a spooky clue...</p>
+        </div>
+        <button id="sound-btn">🔊 Toggle Sound</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
