@@ -9,19 +9,31 @@
 <body>
     <div class="container">
         <h1>🏚️ Haunted House Mystery 🕸️</h1>
-        <p>Click on a room to uncover the mystery!</p>
+        <div class="timer">⏳ Time Left: <span id="timer">60</span> seconds</div>
+        
+        <p>Click on a room to uncover the mystery! Collect items along the way to unlock secrets.</p>
         <div class="house-map">
             <div class="room" id="attic">🕯️ Attic</div>
             <div class="room" id="basement">💀 Basement</div>
-            <div class="room" id="library">📚 Library</div>
+            <div class="room locked" id="library">🔒 Library</div>
             <div class="room" id="kitchen">🍲 Kitchen</div>
         </div>
+
+        <div class="inventory">
+            <h2>Inventory</h2>
+            <p id="inventory-items">No items collected yet...</p>
+        </div>
+
         <div class="clue-section">
             <h2>Clue</h2>
             <p id="clue-text">Click a room to reveal a spooky clue...</p>
         </div>
+
         <button id="sound-btn">🔊 Toggle Sound</button>
+        <button id="toggle-mode">🌞 Dark Mode</button>
     </div>
+    
+    <div id="jumpscare" class="hidden">👻</div>
     <script src="script.js"></script>
 </body>
 </html>
