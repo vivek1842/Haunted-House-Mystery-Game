@@ -10,8 +10,14 @@
     <div class="container">
         <h1>🏚️ Haunted House Mystery 🕸️</h1>
         <div class="timer">⏳ Time Left: <span id="timer">60</span> seconds</div>
-        
-        <p>Click on a room to uncover the mystery! Collect items along the way to unlock secrets.</p>
+        <p>Select Your Avatar:</p>
+        <div class="avatar-section">
+            <img src="avatar1.png" class="avatar" id="avatar1" alt="Avatar 1">
+            <img src="avatar2.png" class="avatar" id="avatar2" alt="Avatar 2">
+        </div>
+        <p id="selected-avatar">No avatar selected.</p>
+
+        <p>Click on a room to uncover the mystery! Collect items and solve trivia.</p>
         <div class="house-map">
             <div class="room" id="attic">🕯️ Attic</div>
             <div class="room" id="basement">💀 Basement</div>
@@ -19,9 +25,14 @@
             <div class="room" id="kitchen">🍲 Kitchen</div>
         </div>
 
-        <div class="inventory">
-            <h2>Inventory</h2>
-            <p id="inventory-items">No items collected yet...</p>
+        <div class="leaderboard">
+            <h2>Room Leaderboard</h2>
+            <ul id="room-leaderboard">
+                <li>Attic: <span id="attic-count">0</span> visits</li>
+                <li>Basement: <span id="basement-count">0</span> visits</li>
+                <li>Library: <span id="library-count">0</span> visits</li>
+                <li>Kitchen: <span id="kitchen-count">0</span> visits</li>
+            </ul>
         </div>
 
         <div class="clue-section">
@@ -31,9 +42,11 @@
 
         <button id="sound-btn">🔊 Toggle Sound</button>
         <button id="toggle-mode">🌞 Dark Mode</button>
+        <button id="share-progress">📤 Share Progress</button>
+
+        <!-- Easter Egg -->
+        <div id="easter-egg" class="hidden">🎁 You found the hidden treasure!</div>
     </div>
-    
-    <div id="jumpscare" class="hidden">👻</div>
     <script src="script.js"></script>
 </body>
 </html>
