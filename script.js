@@ -97,3 +97,50 @@ document.querySelectorAll('.room').forEach(room => {
 
 // Start the timer when the page loads
 startTimer();
+
+
+let avatarSelected = null;
+const roomVisitCount = { attic: 0, basement: 0, library: 0, kitchen: 0 };
+
+// Avatar Selection
+document.querySelectorAll('.avatar').forEach(avatar => {
+    avatar.addEventListener('click', () => {
+        avatarSelected = avatar.id;
+        document.getElementById('selected-avatar').innerText = `Selected Avatar: ${avatar.alt}`;
+    });
+});
+
+// Room Visit Counter
+function updateLeaderboard(room) {
+    roomVisitCount[room]++;
+    document.getElementById(`${room}-count`).innerText = roomVisitCount[room];
+}
+
+// Fetch clue and unlock items based on room
+document.querySelectorAll('.room').forEach(room => {
+    room.addEventListener('click', () => {
+        if (!room.classList.contains('locked')) {
+            fetchClue(room.id);
+            updateLeaderboard(room.id);
+        } else {
+            document.getElementById('clue-text').innerText = 'This room is locked. Find the key!';
+        }
+    });
+});
+
+// Share Progress
+document.getElementById('share-progress').addEventListener('click', () => {
+    const message = `I've explored ${roomVisitCount.attic}x the Attic, ${roomVisitCount.basement}x the Basement... Join me!`;
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://twitter.com/intent/tweet?text=${encodedMessage}`;
+    window.open(url, '_blank');
+});
+
+// Easter Egg
+let easterEggFound = false;
+document.body.addEventListener('click', (e) => {
+    if (e.target.id === 'attic' && !easterEggFound) {
+        document.getElementById('easter-egg').classList.remove('hidden');
+        easterEggFound = true;
+    }
+});
